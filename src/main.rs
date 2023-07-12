@@ -1,11 +1,15 @@
 fn sum_with_missing(numbers: Vec<Option<i32>>) -> i32 {
-    todo!();
+    // let mut subtotal = 0;
+    // for num in numbers {
+    //     subtotal += num.unwrap_or(0);
+    // }
+    // subtotal
+    numbers.iter().map(|x| x.unwrap_or(0)).sum()
 }
 
 fn main() {
     println!("");
 }
-
 
 #[test]
 fn empty() {
