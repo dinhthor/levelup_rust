@@ -1,5 +1,5 @@
-use chrono::{Duration, TimeZone};
 use chrono::{Date, Local};
+use chrono::{Duration, TimeZone};
 
 struct ImportantEvent {
     what: String,
@@ -12,7 +12,7 @@ trait Deadline {
 
 impl Deadline for ImportantEvent {
     fn is_passed(&self) -> bool {
-        todo!();
+        self.when < Local::today()
     }
 }
 
@@ -21,7 +21,7 @@ fn main() {
         what: String::from("Christmas"),
         when: Local.ymd(2020, 12, 25),
     };
-    
+
     if missed_christmas.is_passed() {
         println!("oh well, maybe next year");
     } else {
@@ -48,4 +48,3 @@ fn in_future() {
 
     assert!(!event.is_passed())
 }
-
